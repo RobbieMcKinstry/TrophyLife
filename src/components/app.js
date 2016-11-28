@@ -5,16 +5,12 @@ import Achievement from './achievement';
 
 
 export default class App extends Component {
-  render() {
-    return (
-        <div>
-            <LockedList />
-            <UnlockedList />
-            <Achievement title="Death to the gods" 
-                         description="The Elder gods fear you. Egad!" 
-                         hint="Tell Cthuluh you know his little secret."
-             />
-        </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <LockedList />
+                <UnlockedList />
+            </div>
+        );
+    }
 }

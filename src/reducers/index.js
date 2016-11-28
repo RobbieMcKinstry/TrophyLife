@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import { AchievementReducer } from './achievement'
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+    Achievements:  AchievementReducer
 });
 
 export default rootReducer;

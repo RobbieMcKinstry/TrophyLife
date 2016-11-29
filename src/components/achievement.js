@@ -7,13 +7,16 @@ export default class Achievement extends Component {
         const hint          = props.hint;
         const title         = props.title;
         const description   = props.description;
-        const achieved      = false;
+        const clickFn       = props.onClickFn;
+        const achieved      = props.achieved;
 
         this.state = {
             hint,
             title,
             description,
-            achieved
+            achieved,
+            key: title,
+            clickFn
         };
     }
 
@@ -28,18 +31,22 @@ export default class Achievement extends Component {
     render_achieved() {
         return(
             <li>
-                <h1>Title: { this.state.title } </h1>
-                   { this.state.description }
+                <div className="card" onClick={ () => this.state.clickFn(this.state) }> 
+                    <h1 className="card-title">{ this.state.title }</h1>
+                    <p className="card-text">{ this.state.description }</p>
+                </div>
             </li>
         );
     }
 
     render_unachieved() {
         return(
-            <div>
-                <h1>Title: { this.state.title } </h1>
-                   { this.state.hint }
-            </div>
+            <li>
+                <div className="card" onClick={ () => this.state.clickFn(this.state) }>
+                    <h1 className="card-title">{ this.state.title }</h1>
+                    <p className="card-text">{ this.state.hint }</p>
+                </div>
+            </li>
         );
     }
 };

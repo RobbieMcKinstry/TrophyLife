@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import LockedList from '../containers/locked_list';
-import UnlockedList from '../containers/unlocked_list';
+import { LockedList, UnlockedList } from '../containers/achievement_list';
 import Achievement from './achievement';
 
 

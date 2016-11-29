@@ -1,5 +1,28 @@
-export default function() {
-    return [{
+export default function(state = null, action) {
+    if (!initialized || state == null) {
+        initialized = true;
+        return start_data;
+    }
+
+    switch(action.type) {
+    case 'ACHIEVEMENT_UNLOCKED':    
+        const achievement = action.payload;
+        return state.map(function(fixture) {
+            if(fixture.title === achievement.title) {
+                achievement.achieved = true;
+                return achievement;
+            }
+            return fixture;
+        }); 
+    }
+
+    return state;
+
+};
+
+var initialized = false;
+
+const start_data = [{
         title:          'Early to Bed...',
         description:    'You went to sleep before 10:30pm',
         hint:           'Get some shut-eye early in the night.',
@@ -34,5 +57,5 @@ export default function() {
         description:    'You stayed up all night, and went to class the next day',
         hint:           'Grab some Red Bulls for an all-nighter, but don\'t skip class',
         achieved:       false
-    }];
-};
+    }
+];
